@@ -1,166 +1,72 @@
-:root{
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-    --container-bg-color:#333;
-    --left-bg-color:rgba(223,39,39,0.7);
-    --left-button-hover-color:rgba(163,11,11,0.3);
-    --right-bg-color:rgba(43,43,43,0.8);
-    --left-button-hover-color:rgba(92,92,92,0.3);
-
-    --hover-width: 75%;
-    --other-width: 25%;
-    --speed:1000ms;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-
-html, body 
+body
 {
-    padding:0;
-    margin:0;
-    font-family: 'Franklink Gothic Medium', 'Arial-Narrow',Arial, sans-serif;
-    width:100%;
-    height:100%;
-    overflow-x: hidden;
-}
-
-h1{
-    font-size: 4rem;
+    font-family: 'Roboto' ,sans-serif;
+    background: lightskyblue url('https://i.pinimg.com/originals/3c/24/46/3c24462450c2a902bf7e18f3d9aada81.jpg');
     color:#fff;
-    position:absolute;
-    left:50%;
-    top:20%;
-    transform: translateX(-50%);
-    white-space:nowrap;
-}
+    display:flex;
 
-.button
-{
-    display: block;
-    position: absolute;
-    left: 50%;
-    top: 40%;
-    height: 2.5rem;
-    padding-top: 1.5rem;
-    width: 15rem;
-    text-align: center;
-    color: #fff;
-    border: #fff solid 0.2rem;
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-decoration: none;
-    transform: translateX(-50%);
-
-}
-.split.left .button:hover
-{
-   background-color: var(--left-button-hover-color);
-    border-color: var(--left-button-hover-color);
-
-}
-
-.split.right .button:hover
-{
-   background-color: var(--right-button-hover-color);
-    border-color: var(--right-button-hover-color);
-
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100vh;
 }
 
 .container
 {
-    position: relative;
-    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: auto;
+}
+header{
+    flex:1;
     height:100%;
-    background: var(--container-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.split
+header h1{
+    font-size: 50px;
+}
+
+.counters
 {
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    overflow:hidden;
+background: #0f479a;
+color: #fff;
+padding: 30px 20px;
+border-top: 3px lightskyblue solid;
 }
 
-.split.left
+.counters  .container{
+    display:grid;
+    grid-gap:30px;
+    grid-template-columns: repeat(4,1fr);
+    text-align: center;
+}
+.counters i{
+    color:lightskyblue;
+    margin-bottom: 5px;
+}
+
+.counters .counters{
+margin: 10px 0;
+font-size: 45px;
+}
+@media(max-width:700px)
 {
-    left:0;
-    background: url(img/designer.jpg) center center no-repeat;
-    background-size: cover;
-}
-
-.split.left:before 
-{
-    position: absolute;
-    content: '';
-    width: 100%;
-    height:100%;
-    background: var(--left-bg-color);
-}
-
-.split.right
-{
-    right: 0;
-    background: url(img/programmer.jpg) center center no-repeat;
-    background-size: cover;
-}
-
-.split.right:before 
-{
-    position: absolute;
-    content: '';
-    width: 100%;
-    height:100%;
-    background: var(--right-bg-color);
-}
-
-.split.left, .split.right, .split.left:before, .split.right:before
-{
-    transition: var(--speed) all ease-in-out;
-}
-
-.hover-left .left{
-width: var(--hover-width);
-}
-
-.hover-left .right{
-    width: var(--other-width);
+    .counters .container{
+        grid-template-columns: repeat(2,1fr);
     }
 
-.hover-left .right:before
-{
-    z-index: 2;
-}
-
-
-.hover-right .right{
-    width: var(--hover-width);
-    }
-    
-    .hover-right .left{
-        width: var(--other-width);
-        }
-    
-    .hover-right .left:before
+    .counters .container > div:nth-of-type(1), .counters .container > div:nth-of-type(2)
     {
-        z-index: 2;
+border-bottom: 1px lightskyblue solid;
+padding-bottom: 20px;
     }
-
-    @media(max-width:800px)
-
-    {
-h1{
-font-size:2 rem;
 }
-
-.button{
-    width:12rem;
-}
-    }
-    @media(max-height:700px)
-
-    {
-
-
-.button{
-    top:70%;
-}
-    }
